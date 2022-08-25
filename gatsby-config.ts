@@ -1,5 +1,9 @@
 import { GatsbyConfig } from "gatsby";
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Trainee Fitness`,
@@ -16,8 +20,8 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        accessToken: "9iO8-fU5qJsSsxEJL4oNdHgsqS1YfjiWRjUAeJJ6FGY",
-        spaceId: "w27ngic6u4kz",
+        accessToken: process.env.ACCESS_TOKEN,
+        spaceId: process.env.SPACE_ID,
       },
     },
     "gatsby-plugin-image",
